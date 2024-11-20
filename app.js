@@ -15,15 +15,15 @@ app.use((err, req, res, next) => {
 })
 
 app.use('/express', (req, res)=>{
-    res.send("<p>Az Express egy minimalista webes keretrendszer, amely a Node.js-hez készült.</p>")
+    res.send("Az Express egy minimalista webes keretrendszer, amely a Node.js-hez készült.")
 })
 
 app.use('/greeting', (req, res)=>{
-    res.send("<p> A név helyére a saját neved kerüljön</p>")
+    res.send("A név helyére a saját neved kerüljön")
 })
 
 app.use('/nodejs', (req, res)=>{
-    res.send("<p>A Node.js egy olyan szerveroldali JavaScript futtatókörnyezet, amely a V8 JavaScript motorra épül.</p>")
+    res.send("A Node.js egy olyan szerveroldali JavaScript futtatókörnyezet, amely a V8 JavaScript motorra épül.")
 })
 
 app.listen(PORT, ()=> console.log("Hi, there!"))
