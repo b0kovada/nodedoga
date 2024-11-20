@@ -1,13 +1,17 @@
-import bodyParser from 'body-parser'
 import express from 'express'
-import path from 'path'
+import mainRoutes from './routes/main.js'
 
 const app = express()
 const PORT = 3000
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use('/', mainRoutes)
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use((err, req, res, next) => {
+    if(err){
+        console.log(`Error: ${err}`)
+        res.status(res.status || 500).send(`Hiba történt: ${err}`)
+    }
+    next()
+})
 
-
-app.listen(PORT, () => console.log("Hi, there!"))
+app.listen(PORT, ()=> console.log("Hi, there!"))
